@@ -1,0 +1,206 @@
+@import "main";
+
+// ============== HEADER ============== 
+
+.header {
+  &__container {
+    @include device-up(xs) {
+      padding: 0;
+    }
+  }
+
+  @include device-up(lg) {
+    &__inner-wrapper {
+      flex-wrap: nowrap;
+      padding: 15px;
+    }
+
+    .main-nav {
+      flex-basis: auto;
+      max-height: none;
+
+      &__list {
+        display: flex;
+        width: auto;
+        line-height: 32px;
+        margin-top: 0;
+        padding-left: 10px;
+
+        &:before {
+          margin-left: 18px;
+        }
+      }
+
+      &__link {
+        display: inline;
+        width: auto;
+        padding: 8px;
+      }
+
+      &__item {
+        border: none;
+        padding: 0;
+        margin-left: 2.5rem;
+        margin-right: 1rem;
+      }
+    }
+
+    .burger {
+
+      &,
+      &__toggle {
+        display: none;
+      }
+    }
+  }
+}
+
+// ============== HEADER ENDS ==============  
+
+// ============== HERO ==============
+
+.hero {
+  @include device-up(md) {
+    h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    &__text--typed::after {
+      font-size: 40px;
+    }
+  }
+}
+
+// ============== HERO ENDS ==============
+
+// ============== ABOUT ==============
+
+.about {
+  &-bio {
+    @include device-up(lg) {
+      &__row {
+        justify-content: space-between;
+        flex-direction: row;
+      }
+
+      &__column {
+        flex: 1;
+
+        &:last-child {
+          flex: 2;
+        }
+      }
+
+      &__img-wrapper {
+        padding-bottom: 30px;
+      }
+
+      &__img {
+        img {
+          margin-top: -60px;
+          margin-left: 40px;
+        }
+      }
+
+      &__descr {
+        margin-left: 9rem;
+      }
+    }
+  }
+
+  &-favors {
+
+    .favor {
+      @include device-up(sm) {
+        width: 50%;
+        padding: 1rem;
+      }
+
+      @include device-up(lg) {
+        width: 25%;
+      }
+    }
+  }
+}
+
+// ============== ABOUT ENDS ==============
+
+// ============== PORTFOLIO ==============
+
+.portfolio {
+  .tab {
+    @include device-up(sm) {
+      width: calc(50% - (12px / 2) - 2%);
+      padding: 0 1%;
+
+      &:not(:nth-child(3n)) {
+        margin-right: 0;
+      }
+    }
+
+    @include device-up(lg) {
+      width: calc(100% / 3 - (24px / 3));
+    }
+  }
+}
+
+// ============== PORTFOLIO ENDS ==============
+
+// ============== BLOG ==============
+
+.blog {
+  .article {
+    @include device-up(sm) {
+      width: calc(50% - (12px / 2) - 2%);
+      padding: 0 1%;
+
+      &:not(:nth-child(3n)) {
+        margin-right: 0;
+      }
+    }
+
+    @include device-up(lg) {
+      width: calc(100% / 3 - (24px / 3));
+    }
+  }
+}
+
+// ============== BLOG ENDS ==============
+
+// ============== CONTACTS ==============
+
+.contact {
+  @include device-up(lg) {
+    &__inner-wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__details {
+      width: 50%;
+    }
+
+    &__form-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      input:nth-child(-n+2) {
+        display: inline-flex;
+        width: calc(50% - (12px / 2) - 12px);
+
+        &:first-child {
+          margin-right: 24px;
+        }
+      }
+    }
+  }
+}
+
+// ============== CONTACTS ENDS ==============

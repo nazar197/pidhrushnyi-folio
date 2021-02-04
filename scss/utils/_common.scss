@@ -1,0 +1,175 @@
+@import "vars";
+@import "fonts";
+@import "mixins";
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/**
+* 1 - Correct the line height in all browsers.
+* 2 - Prevent adjustments of font size after orientation changes in iOS.
+*/
+html {
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+	scroll-behavior: smooth;
+}
+
+body {
+	overflow-x: hidden;
+	font-size: 15px;
+}
+
+body,
+ul,
+li,
+p {
+	margin: 0;
+}
+
+/**
+* Correct the font size and margin on `h1` elements within `section` and
+* `article` contexts in Chrome, Firefox, and Safari.
+*/
+h1 {
+	font-size: 2em;
+	margin: .67em 0;
+}
+
+h2 {
+	font-size: 1.5em;
+	margin: .83em 0;
+}
+
+h3 {
+	font-size: 1.17em;
+	margin: .1em 0;
+}
+
+h4 {
+	font-size: 1em;
+  margin: 1.33em 0;
+}
+
+/**
+*  1 - Remove the inheritance of text transform in Edge, Firefox, and IE.
+*/
+button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	text-transform: none; /* 1 */
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+
+	&[class="btn"] {
+		display: inline-flex;
+		cursor: pointer;
+	}
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+/**
+* Make images easier to work with 
+*/
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/**
+* Inherit the font styles for inputs and buttons 
+*/
+button,
+input,
+textarea {
+	font: inherit;
+}
+
+/**
+* Show the overflow in IE, Edge.
+*/
+button,
+input {
+	overflow: visible;
+}
+
+/**
+* 1 - Correct the inability to style clickable types in iOS and Safari.
+* 2 - Remove the inner border and padding in Firefox.
+* 3 - Restore the focus styles unset by the previous rule.
+*/
+button,
+[type="button"],
+[type="submit"] {
+	-webkit-appearance: button; /* 1 */
+	&::-moz-focus-inner {
+		border-style: none; /* 2 */
+		padding: 0; /* 2 */
+	}
+	&:-moz-focusring {
+		outline: 1px dotted ButtonText; /* 3 */
+	}
+}
+
+/**
+* Remove the default vertical scrollbar in IE 10+.
+*/
+textarea {
+	overflow: auto;
+}
+
+/**
+* Add the correct display in IE 10.
+*/
+[hidden] {
+	display: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: ($column-gap / 2);
+  padding-left: ($column-gap / 2);
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $breakpoint, $width in $container-widths {
+    @include device-up($breakpoint, $grid-breakpoints) {
+      max-width: $width;
+    }
+  }
+}
+
+p {
+	font-size: initial;
+  color: $primary-color;
+  line-height: 28px;
+	padding: 0;
+}
+
+address {
+	font-style:normal;
+}
+
+input[type="radio"]{
+	display: none;
+}
+
+.section-padding {
+  padding: 90px 0;
+}

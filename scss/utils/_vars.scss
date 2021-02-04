@@ -1,0 +1,41 @@
+// Colors 
+
+$primary-color: #999;
+$secondary-color: #b8a07e;
+
+$titles-color: darken($primary-color, 44%);
+$text-color: $primary-color;
+
+$white: #fff;
+$gray: lighten($primary-color, 37%);
+
+$form-focus: #86b7fe;
+$form-btn-bg: darken($primary-color, 40%);
+
+$overlay-bg-color: rgba(24,39,51,.85);
+
+// Own grid
+
+$container-widths: (
+  "sm": 540px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1140px,
+  "xxl": 1320px,
+);
+
+$grid-breakpoints: (
+  "xs": 0px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px,
+);
+
+$columns: 12;
+$column-gap: 24px;
+
+// Filter works from portfolio via tabs
+
+$tabs: web, design, web, apps, design, apps;

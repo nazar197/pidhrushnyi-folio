@@ -1,0 +1,74 @@
+@mixin main-font--light {
+  font-family: 'Poppins', helvetica;
+  font-weight: 300;
+}
+
+@mixin main-font--medium {
+  font-family: 'Poppins', helvetica;
+  font-weight: 500;
+}
+
+@mixin main-font--semibold {
+  font-family: 'Poppins', helvetica;
+  font-weight: 600;
+}
+
+@mixin main-font--bold {
+  font-family: 'Poppins', helvetica;
+  font-weight: bold;
+}
+
+@mixin second-font--regular {
+  font-family: 'PlayfairDisplay', serif;
+  font-weight: normal;
+}
+
+// Device breakpoint up 
+
+@mixin device-up($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+
+  @if (0 !=$min, $min, null) {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+// Hide tab content
+
+@mixin filter-tabs {
+  #filter--apps:checked~.wrapper .content [data="web"] {
+    display: none;
+  }
+
+  #filter--apps:checked~.wrapper .content [data="design"] {
+    display: none;
+  }
+
+  #filter--design:checked~.wrapper .content [data="web"] {
+    display: none;
+  }
+
+  #filter--design:checked~.wrapper .content [data="apps"] {
+    display: none;
+  }
+
+  #filter--web:checked~.wrapper .content [data="design"] {
+    display: none;
+  }
+
+  #filter--web:checked~.wrapper .content [data="apps"] {
+    display: none;
+  }
+}
+
+@mixin d-flex_jc-center_ai-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
