@@ -1,18 +1,13 @@
 // Colors 
 
-$primary-color: #999;
-$secondary-color: #b8a07e;
-
-$titles-color: darken($primary-color, 44%);
-$text-color: $primary-color;
-
 $white: #fff;
-$gray: lighten($primary-color, 37%);
-
-$form-focus: #86b7fe;
-$form-btn-bg: darken($primary-color, 40%);
-
+$golden: #b8a07e;
+$gray: #999;
+$gray--light: lighten($gray, 37%);
+$gray--dark: darken($gray, 44%);
 $overlay-bg-color: rgba(24,39,51,.85);
+$form-focus-color: #86b7fe;
+$form-btn-bg-color: darken($gray, 40%);
 
 // Own grid
 
@@ -36,6 +31,17 @@ $grid-breakpoints: (
 $columns: 12;
 $column-gap: 24px;
 
-// Filter works from portfolio via tabs
+// Font & it's properties
 
-$tabs: web, design, web, apps, design, apps;
+$fonts: (
+  "main": "Poppins",
+  "secondary": "PlayfairDisplay",
+);
+
+$font-weights: (
+  "light": 300,
+  "normal": 400,
+  "medium": 500,
+  "semibold ": 600,
+  "bold": 700,
+);

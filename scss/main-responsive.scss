@@ -3,18 +3,15 @@
 // ============== HEADER ============== 
 
 .header {
-  &__container {
-    @include device-up(xs) {
-      padding: 0;
-    }
+  @include device-up(md) {
+
+    &__inner-wrapper { padding: 10px 0; }
+
+    .burger,
+    .burger__toggle { right: 10px; }
   }
 
   @include device-up(lg) {
-    &__inner-wrapper {
-      flex-wrap: nowrap;
-      padding: 15px;
-    }
-
     .main-nav {
       flex-basis: auto;
       max-height: none;
@@ -22,36 +19,26 @@
       &__list {
         display: flex;
         width: auto;
-        line-height: 32px;
         margin-top: 0;
-        padding-left: 10px;
 
-        &:before {
-          margin-left: 18px;
-        }
+        &:before { margin-left: 18px; }
       }
 
       &__link {
         display: inline;
         width: auto;
-        padding: 8px;
       }
 
       &__item {
         border: none;
         padding: 0;
-        margin-left: 2.5rem;
-        margin-right: 1rem;
+        margin-left: 40px;
+        &:not(:last-child) { margin-right: 16px; }
       }
     }
 
-    .burger {
-
-      &,
-      &__toggle {
-        display: none;
-      }
-    }
+    .burger,
+    .burger__toggle { display: none; }
   }
 }
 
@@ -60,20 +47,18 @@
 // ============== HERO ==============
 
 .hero {
-  @include device-up(md) {
-    h1 {
+  @include device-up(sm) {
+    &__heading {
       font-size: 40px;
       margin-bottom: 15px;
     }
 
-    p {
+    &__descr {
       font-size: 13px;
       margin-bottom: 30px;
     }
 
-    &__text--typed::after {
-      font-size: 40px;
-    }
+    &__text--typed::after { font-size: 40px; }
   }
 }
 
@@ -82,35 +67,30 @@
 // ============== ABOUT ==============
 
 .about {
+  @include device-up(md) { padding-top: 120px; }
+
   &-bio {
+    @include device-up(md) { margin-bottom: 90px; }
     @include device-up(lg) {
       &__row {
         justify-content: space-between;
         flex-direction: row;
       }
 
-      &__column {
+      &__col {
         flex: 1;
 
-        &:last-child {
-          flex: 2;
-        }
+        &:last-child { flex: 2; }
       }
 
-      &__img-wrapper {
-        padding-bottom: 30px;
-      }
+      &__img-wrapper { padding-bottom: 30px; }
 
       &__img {
-        img {
-          margin-top: -60px;
-          margin-left: 40px;
-        }
+        margin-top: -60px;
+        margin-left: 40px;
       }
 
-      &__descr {
-        margin-left: 9rem;
-      }
+      &__descr { margin-left: 9rem; }
     }
   }
 
@@ -120,10 +100,13 @@
       @include device-up(sm) {
         width: 50%;
         padding: 1rem;
+        margin-bottom: 0;
+        &:nth-child(-n+2) { margin-bottom: $column-gap; }
       }
 
       @include device-up(lg) {
         width: 25%;
+        &:nth-child(n) { margin-bottom: 0; }
       }
     }
   }
@@ -134,19 +117,18 @@
 // ============== PORTFOLIO ==============
 
 .portfolio {
-  .tab {
+  .tabs {
     @include device-up(sm) {
-      width: calc(50% - (12px / 2) - 2%);
-      padding: 0 1%;
+      flex-direction: row;
+      width: 400px;
+      @include d-flex_jc-space-between;
 
-      &:not(:nth-child(3n)) {
-        margin-right: 0;
-      }
+      & > label { margin-bottom: 0; }
     }
-
-    @include device-up(lg) {
-      width: calc(100% / 3 - (24px / 3));
-    }
+  }
+  .project {
+    @include grid-cards(sm, 2);
+    @include grid-cards(lg, 3);
   }
 }
 
@@ -156,18 +138,8 @@
 
 .blog {
   .article {
-    @include device-up(sm) {
-      width: calc(50% - (12px / 2) - 2%);
-      padding: 0 1%;
-
-      &:not(:nth-child(3n)) {
-        margin-right: 0;
-      }
-    }
-
-    @include device-up(lg) {
-      width: calc(100% / 3 - (24px / 3));
-    }
+    @include grid-cards(sm, 2);
+    @include grid-cards(lg, 3);
   }
 }
 
@@ -182,22 +154,20 @@
       flex-direction: row;
     }
 
-    &__details {
-      width: 50%;
-    }
+    &__details,
+    &__form { flex: 1; }
+
+    &__details { margin-bottom: 0; }
 
     &__form-group {
-      display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      @include d-flex_jc-space-between;
 
       input:nth-child(-n+2) {
         display: inline-flex;
         width: calc(50% - (12px / 2) - 12px);
 
-        &:first-child {
-          margin-right: 24px;
-        }
+        &:first-child { margin-right: $column-gap; }
       }
     }
   }

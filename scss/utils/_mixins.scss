@@ -1,26 +1,39 @@
-@mixin main-font--light {
-  font-family: 'Poppins', helvetica;
-  font-weight: 300;
+// Set main/secondary font with the weight 
+
+@mixin set-font($font:main, $weight:light, $font-size:inherit, $line-height:1.2) {
+  $font-name: map-get($fonts, $font);
+  $font-weight: map-get($font-weights, $weight);
+
+  @if ($font==main) {
+    font-family: $font-name, helvetica;
+    font-weight: $font-weight;
+  }
+
+  @else {
+    font-family: $font-name, serif;
+    font-weight: $font-weight;
+  }
+
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
-@mixin main-font--medium {
-  font-family: 'Poppins', helvetica;
-  font-weight: 500;
+// Flex settings
+
+@mixin d-flex_jc-center_ai-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@mixin main-font--semibold {
-  font-family: 'Poppins', helvetica;
-  font-weight: 600;
+@mixin d-flex_fd-column {
+  display: flex;
+  flex-direction: column;
 }
 
-@mixin main-font--bold {
-  font-family: 'Poppins', helvetica;
-  font-weight: bold;
-}
-
-@mixin second-font--regular {
-  font-family: 'PlayfairDisplay', serif;
-  font-weight: normal;
+@mixin d-flex_jc-space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 // Device breakpoint up 
@@ -28,47 +41,52 @@
 @mixin device-up($name, $breakpoints: $grid-breakpoints) {
   $min: map-get($breakpoints, $name);
 
-  @if (0 !=$min, $min, null) {
-    @media (min-width: $min) {
-      @content;
+  @if (0!=$min, $min, null) {
+    @media (min-width: $min) { @content; }
+  }
+
+  @else { @content; }
+}
+
+// Toggle tabs content
+
+@mixin toggle-tabs-content($tab-name--first, $tab-name--second, $tab-name--third) {
+  $tabs: $tab-name--first, $tab-name--second, $tab-name--third;
+
+  @each $displayed-tab in $tabs {
+    @each $hidden-tab in $tabs {
+      @if ($displayed-tab != $hidden-tab) {
+        #filter--#{$displayed-tab}:checked~.portfolio__wrapper .projects [data="#{$hidden-tab}"] { display: none; }
+      }
     }
   }
-
-  @else {
-    @content;
-  }
 }
 
-// Hide tab content
+@mixin grid-cards($breakpoint:xs, $cards-in-rows: 1) {
+  @include device-up($breakpoint) {
+    @if ($cards-in-rows==1) {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: $column-gap;
+    }
 
-@mixin filter-tabs {
-  #filter--apps:checked~.wrapper .content [data="web"] {
-    display: none;
+    @else if ($cards-in-rows>=2) {
+      @if ($cards-in-rows!=2) {
+        @for $i from 1 through $cards-in-rows {
+          &:nth-child(#{($i)-1}n) { margin-right: $column-gap; }
+        }
+      }
+
+      width: calc(100% / #{$cards-in-rows} - #{$column-gap} * (#{$cards-in-rows} - 1) / #{$cards-in-rows});
+      margin-right: $column-gap;
+      
+      &:nth-child(#{($cards-in-rows)}n) { margin-right: 0; }
+    }
+
+    @else { 
+      @error "There is an Error! Please, check the input data once more!"; 
+    }
   }
-
-  #filter--apps:checked~.wrapper .content [data="design"] {
-    display: none;
-  }
-
-  #filter--design:checked~.wrapper .content [data="web"] {
-    display: none;
-  }
-
-  #filter--design:checked~.wrapper .content [data="apps"] {
-    display: none;
-  }
-
-  #filter--web:checked~.wrapper .content [data="design"] {
-    display: none;
-  }
-
-  #filter--web:checked~.wrapper .content [data="apps"] {
-    display: none;
-  }
-}
-
-@mixin d-flex_jc-center_ai-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
