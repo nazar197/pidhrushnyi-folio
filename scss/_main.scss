@@ -258,17 +258,79 @@
     }
   }
 
-  &-favors {
-    overflow: hidden;
+  .favors {
+
+    &__carousel { overflow: hidden; }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 100%;
+    }
+    
+    &__slider {
+      display: block;
+      height: 100%;
+      white-space: nowrap;
+      font-size: 0;
+      transition: 0.8s;
+      
+      &-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-bullets {
+        display: block;
+        bottom: 0;
+        padding: 10px 0;
+        width: 100%;
+        height: 38px;
+        text-align: center;
+
+        & > label+label { background-color: $white; }
+      }
+
+      &-bullet {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        text-decoration: none;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $golden;
+        border: 1px solid $golden;
+        transition: 0.3s;
+      }
+    }
+    
+    &__slide {
+      font-size: 1rem;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      white-space: normal;
+      padding: 20px;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__carousel > input:checked ~ .favors__slider-wrap .favors__slider-bullets > * { background-color: $white; }
+    @include fill-bullet-with-golden-color;
+    
+    #s1:checked ~ .favors__slider-wrap .favors__slider { transform: translateX(0%); }
+    #s2:checked ~ .favors__slider-wrap .favors__slider { transform: translateX(-100%); }
+    #s3:checked ~ .favors__slider-wrap .favors__slider { transform: translateX(-200%); }
+    #s4:checked ~ .favors__slider-wrap .favors__slider { transform: translateX(-300%); }
 
     .favor {
+      display: flex;
+      width: 100%;
       margin-bottom: $column-gap;
       @include d-flex_fd-column;
-
-      &__list {
-        display: flex;
-        flex-wrap: wrap;
-      }
 
       &__icon {
         font-size: 36px;

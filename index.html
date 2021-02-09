@@ -176,46 +176,106 @@
 					<!-- /.about-bio__row -->
 				</div>
 				<!-- /.about-bio -->
-				<div class="about-favors">
-					<ul class="favor__list">
-						<li class="favor">
-							<i class="icon-layer-group favor__icon"></i>
-							<h4 class="favor__heading">Dividing work into stages</h4>
-							<p class="favor__descr">
-								I'm not demonstrating the project at the last moment before the deadline.<br />
-								The demonstration of each part of the project is step-by-step.
-							</p>
-						</li>
-						<!-- /.favor -->
-						<li class="favor">
-							<i class="icon-calendar favor__icon"></i>
-							<h4 class="favor__heading">Deadlines</h4>
-							<p class="favor__descr">
-								Deploying the project in the specified terms. <br />
-								If the deadline is overdue, then you will pay less.
-							</p>
-						</li>
-						<!-- /.favor -->
-						<li class="favor">
-							<i class="icon-comments-alt-dollar favor__icon"></i>
-							<h4 class="favor__heading">"Fair" price</h4>
-							<p class="favor__descr">
-								For an atypical project, I will give you a full-price calculation of the work and its explanations.
-							</p>
-						</li>
-						<!-- /.favor -->
-						<li class="favor">
-							<i class="icon-server favor__icon"></i>
-							<h4 class="favor__heading">Hosting</h4>
-							<p class="favor__descr">
-								If you choose a hosting proposed by me, you will receive an extra <span class="favor__discount">-10%</span> discount on it.
-							</p>
-						</li>
-						<!-- /.favor -->
-					</ul>
-					<!-- /.favor__list -->
+				<div class="favors">
+					<div class="favors__carousel">
+
+						<input type="radio" name="bullet" id="s1">
+						<input type="radio" name="bullet" id="s2">
+						<input type="radio" name="bullet" id="s3">
+						
+						<div class="favors__slider-wrap">
+							<div class="favors__slider">
+								<div class="favors__slide">
+									<ul class="favors__list">
+										<li class="favor" data="favor-1">
+											<i class="icon-layer-group favor__icon"></i>
+											<h4 class="favor__heading">Dividing work into stages</h4>
+											<p class="favor__descr">
+												I'm not demonstrating the project at the last moment before the deadline.<br />
+												The demonstration of each part of the project is step-by-step.
+											</p>
+										</li>
+										<!-- /.favor -->
+										<li class="favor" data="favor-2">
+											<i class="icon-calendar favor__icon"></i>
+											<h4 class="favor__heading">Deadlines</h4>
+											<p class="favor__descr">
+												Deploying the project in the specified terms. <br />
+												If the deadline is overdue, then you will pay less.
+											</p>
+										</li>
+										<!-- /.favor -->
+									</ul>
+									<!-- /.favors__list -->
+								</div>
+								<!-- /.favors__slide -->
+								<div class="favors__slide">
+									<ul class="favors__list">
+										<li class="favor" data="favor-3">
+											<i class="icon-comments-alt-dollar favor__icon"></i>
+											<h4 class="favor__heading">"Fair" price</h4>
+											<p class="favor__descr">
+												For an atypical project, I will give you a full-price calculation of the work and its explanations.
+											</p>
+										</li>
+										<!-- /.favor -->
+										<li class="favor" data="favor-4">
+											<i class="icon-server favor__icon"></i>
+											<h4 class="favor__heading">Hosting</h4>
+											<p class="favor__descr">
+												If you choose a hosting proposed by me, you will receive an extra <span class="favor__discount">-10%</span> discount on it.
+											</p>
+										</li>
+										<!-- /.favor -->
+									</ul>
+									<!-- /.favors__list -->
+								</div>
+								<!-- /.favors__slide -->
+								<div class="favors__slide">
+									<ul class="favors__list">
+										<li class="favor" data="favor-5">
+											<i class="icon-file-contract favor__icon"></i>
+											<h4 class="favor__heading">Working under the contract</h4>
+											<p class="favor__descr">
+												The contract defines the responsibilities of each side and the project deadline.
+											</p>
+										</li>
+										<!-- /.favor -->
+										<li class="favor" data="favor-6">
+											<i class="icon-user-headset favor__icon"></i>
+											<h4 class="favor__heading">Support after deployment</h4>
+											<p class="favor__descr">
+												I will teach you or your employee to use the site. If needed, I would also record video instructions for you.
+											</p>
+										</li>
+										<!-- /.favor -->
+									</ul>
+									<!-- /.favors__list -->
+								</div>
+								<!-- /.favors__slide -->
+								<div class="favors__slide">
+									<h4 class="favor__heading">4</h4>
+									<p class="favor__descr">
+										I'm not demonstrating the project at the last moment before the deadline.<br />
+										The demonstration of each part of the project is step-by-step.
+									</p>
+								</div>
+								<!-- /.favors__slide -->
+							</div>
+							<!-- /.favors__slider -->
+
+							<div class="favors__slider-bullets">
+								<label class="favors__slider-bullet" for="s1"></label>
+								<label class="favors__slider-bullet" for="s2"></label>
+								<label class="favors__slider-bullet" for="s3"></label>
+							</div>
+							<!-- /.favors__slider-bullets -->
+						</div>
+						<!-- /.favors__slider-wrap -->
+					</div>
+					<!-- /.favors__carousel -->
 				</div>
-				<!-- /.about-favors -->
+				<!-- /.favors -->
 			</div>
 			<!-- /.container -->
 		</section>
@@ -257,9 +317,9 @@
 						</li>
 						<!-- /.project -->
 						<li class="project landings" data="landings">
-							<img src="images/portfolio/willberries.jpg" class="project__image" alt="project-thumb: Willberies" />
+							<img src="images/portfolio/willberries.jpg" class="project__image" alt="project-thumb: Willberries" />
 							<div class="project__info">
-								<h4 class="project__heading">Willberies</h4>
+								<h4 class="project__heading">Willberries</h4>
 								<p class="project__descr">HTML, CSS, Bootstrap</p>
 								<a href="//nazar197.github.io/WillBerries/" class="project__details-link" rel="noopener noreferrer" target="_blank">
 									<i class="icon-link"></i>

@@ -70,7 +70,6 @@
   @include device-up(md) { padding-top: 120px; }
 
   &-bio {
-    @include device-up(md) { margin-bottom: 90px; }
     @include device-up(lg) {
       &__row {
         justify-content: space-between;
@@ -94,20 +93,14 @@
     }
   }
 
-  &-favors {
+  .favor {
+    @include device-up(md) {
+      flex-basis: 50%;
+      margin-bottom: 0;
 
-    .favor {
-      @include device-up(sm) {
-        width: 50%;
-        padding: 1rem;
-        margin-bottom: 0;
-        &:nth-child(-n+2) { margin-bottom: $column-gap; }
-      }
+      &:not(:last-child) { padding-right: $column-gap / 2; }
 
-      @include device-up(lg) {
-        width: 25%;
-        &:nth-child(n) { margin-bottom: 0; }
-      }
+      &:last-child { padding-left: $column-gap / 2; }
     }
   }
 }

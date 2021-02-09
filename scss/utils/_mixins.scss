@@ -48,6 +48,14 @@
   @else { @content; }
 }
 
+// Slider settings
+
+@mixin fill-bullet-with-golden-color {
+  @for $i from 1 through 4 {
+    #s#{$i}:checked ~ .favors__slider-wrap .favors__slider-bullets > *:nth-child(#{$i}) { background-color: $golden; }
+  }
+}
+
 // Toggle tabs content
 
 @mixin toggle-tabs-content($tab-name--first, $tab-name--second, $tab-name--third) {
@@ -56,7 +64,7 @@
   @each $displayed-tab in $tabs {
     @each $hidden-tab in $tabs {
       @if ($displayed-tab != $hidden-tab) {
-        #filter--#{$displayed-tab}:checked~.portfolio__wrapper .projects [data="#{$hidden-tab}"] { display: none; }
+        #filter--#{$displayed-tab}:checked ~ .portfolio__wrapper .projects [data="#{$hidden-tab}"] { display: none; }
       }
     }
   }
